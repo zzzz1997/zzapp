@@ -1,0 +1,56 @@
+name: zzapp
+description: A new Flutter application.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 状态管理
+  get: ^4.1.4
+  # 缓存图片
+  extended_image: ^4.0.1
+  # 模拟数据
+  dart_mock: ^2.0.0
+  # 吐司
+  bot_toast: ^4.0.1
+  # 本地存储
+  shared_preferences: ^2.0.5
+  # svg
+  flutter_svg: ^0.21.0+1
+  # 日志
+  logger: ^1.0.0
+  # 网络请求
+  dio: ^4.0.0
+  # 刷新
+  flutter_easyrefresh: ^2.2.1
+  # 序列化注解
+  json_annotation: ^4.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # 构建工具
+  build_runner: ^1.12.2
+  # 序列化
+  json_serializable: ^4.1.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - asset/image/
+
+  fonts:
+    - family: fluzz
+      fonts:
+        - asset: asset/font/iconfont.ttf
+    - family: kuaile
+      fonts:
+        - asset: asset/font/ZCOOLKuaiLe-Regular.ttf

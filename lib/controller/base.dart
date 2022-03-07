@@ -5,10 +5,13 @@ import 'package:get/get.dart';
 ///
 enum ControllerStatus {
   // 加载中
+  // ignore: constant_identifier_names
   LOADING,
   // 完成
+  // ignore: constant_identifier_names
   DONE,
   // 错误
+  // ignore: constant_identifier_names
   ERROR
 }
 
@@ -40,7 +43,7 @@ abstract class BaseLoadController<T> extends GetxController {
       status(ControllerStatus.DONE);
     } catch (e) {
       status(ControllerStatus.ERROR);
-      throw e;
+      rethrow;
     }
   }
 }
@@ -83,7 +86,7 @@ abstract class BaseRefreshController<T> extends GetxController {
       status(ControllerStatus.DONE);
     } catch (e) {
       status(ControllerStatus.ERROR);
-      throw e;
+      rethrow;
     }
   }
 

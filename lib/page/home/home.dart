@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zzapp/controller/home.dart';
@@ -14,6 +13,8 @@ import 'package:zzapp/widget/appbar.dart';
 ///
 // ignore: must_be_immutable
 class HomeFragment extends StatelessWidget with BaseRefresh<HomeController> {
+  HomeFragment({Key? key}) : super(key: key);
+
   @override
   HomeController get controller => HomeController();
 
@@ -24,12 +25,12 @@ class HomeFragment extends StatelessWidget with BaseRefresh<HomeController> {
       appBar: MyAppBar('home'.tr),
       body: buildRefresh(
         () => SliverPadding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           sliver: SliverList(
             delegate: SliverChildBuilderDelegate(
               (_, i) => i.isEven
                   ? _buildArticle(c.data[i ~/ 2])
-                  : SizedBox(
+                  : const SizedBox(
                       height: 10,
                     ),
               childCount: c.data.length * 2,

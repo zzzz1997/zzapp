@@ -43,15 +43,17 @@ class LoadingView extends StatelessWidget {
   final Widget? loading;
 
   LoadingView(
-      {required this.status,
+      {Key? key,
+      required this.status,
       required this.builder,
       required this.isEmpty,
       this.onErrorTap,
       this.empty,
       this.error,
-      this.loading}) {
-    this.empty ??= prompt(true);
-    this.error ??= prompt(false);
+      this.loading})
+      : super(key: key) {
+    empty ??= prompt(true);
+    error ??= prompt(false);
   }
 
   @override
@@ -76,7 +78,7 @@ class LoadingView extends StatelessWidget {
   ///
   static Widget prompt(empty) => Text(
         empty ? '暂无记录' : '加载错误',
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 12,
         ),
       );
@@ -127,15 +129,17 @@ class RefreshLoadingView extends StatelessWidget {
   final Widget? loading;
 
   RefreshLoadingView(
-      {required this.status,
+      {Key? key,
+      required this.status,
       required this.builder,
       required this.isEmpty,
       this.onErrorTap,
       this.empty,
       this.error,
-      this.loading}) {
-    this.empty ??= LoadingView.prompt(true);
-    this.error ??= LoadingView.prompt(false);
+      this.loading})
+      : super(key: key) {
+    empty ??= LoadingView.prompt(true);
+    error ??= LoadingView.prompt(false);
   }
 
   @override
@@ -168,7 +172,7 @@ class _EmptyWidget extends StatelessWidget {
   // 子组件
   final Widget child;
 
-  _EmptyWidget({required this.child});
+  const _EmptyWidget({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -182,7 +186,7 @@ class _EmptyWidget extends StatelessWidget {
                     controller.size(
                         Size(constraints.maxWidth, constraints.maxHeight));
                   });
-                  return SizedBox();
+                  return const SizedBox();
                 },
               ),
               axisDirectionNotifier: controller.axisDirectionNotifier)
@@ -207,7 +211,7 @@ class _EmptyController extends GetxController {
       ValueNotifier<AxisDirection>(AxisDirection.down);
 
   // 组件大小
-  var size = Size(0, 0).obs;
+  var size = const Size(0, 0).obs;
 
   @override
   void onClose() {

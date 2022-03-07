@@ -12,6 +12,8 @@ import 'package:zzapp/controller/theme.dart';
 /// @created_time 20200911
 ///
 class SplashPage extends StatelessWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance!.addPostFrameCallback((_) async {

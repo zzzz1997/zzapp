@@ -43,7 +43,7 @@ mixin BaseLoad<T extends BaseLoadController> on StatelessWidget {
         _onRefresh();
       });
     }
-    return SizedBox();
+    return const SizedBox();
   }
 
   ///
@@ -88,7 +88,7 @@ mixin BaseLoad<T extends BaseLoadController> on StatelessWidget {
           footer: MaterialFooter(),
           onRefresh: _onRefresh,
           bottomBouncing: false,
-          child: center ? SizedBox() : widget,
+          child: center ? const SizedBox() : widget,
         );
       }
       if (refreshBuilder != null) {
@@ -141,7 +141,7 @@ mixin BaseRefresh<T extends BaseRefreshController> on StatelessWidget {
   @override
   Widget build(BuildContext context) {
     c = Get.put(controller);
-    return SizedBox();
+    return const SizedBox();
   }
 
   ///

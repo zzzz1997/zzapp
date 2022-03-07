@@ -19,12 +19,10 @@ class DioUtil {
   /// 获取dio单例
   ///
   static Dio _getDio() {
-    if (_dio == null) {
-      _dio = Dio(BaseOptions(
-        connectTimeout: 10000,
-        receiveTimeout: 10000,
-      ));
-    }
+    _dio ??= Dio(BaseOptions(
+      connectTimeout: 10000,
+      receiveTimeout: 10000,
+    ));
     return _dio!;
   }
 

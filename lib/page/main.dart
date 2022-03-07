@@ -16,10 +16,12 @@ import 'package:zzapp/page/mine/mine.dart';
 // ignore: must_be_immutable
 class MainPage extends StatelessWidget {
   // 页面数组
-  final _pages = [HomeFragment(), MineFragment()];
+  final _pages = [HomeFragment(), const MineFragment()];
 
   // 时间戳
   var _timestamp = DateTime.fromMillisecondsSinceEpoch(0);
+
+  MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +36,11 @@ class MainPage extends StatelessWidget {
             currentIndex: controller.index.value,
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: const Icon(Icons.home),
                 label: 'home'.tr,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.face),
+                icon: const Icon(Icons.face),
                 label: 'mine'.tr,
               ),
             ],

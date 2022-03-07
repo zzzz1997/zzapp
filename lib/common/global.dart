@@ -44,7 +44,7 @@ class Global {
   static toast(String message) {
     BotToast.showText(
       text: message,
-      textStyle: TextStyle(
+      textStyle: const TextStyle(
         color: Colors.white,
       ),
     );

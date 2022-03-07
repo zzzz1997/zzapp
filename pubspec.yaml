@@ -13,33 +13,35 @@ dependencies:
     sdk: flutter
 
   # 状态管理
-  get: ^4.1.4
+  get: ^4.6.1
   # 缓存图片
-  extended_image: ^4.0.1
+  extended_image: ^6.0.1
   # 模拟数据
   dart_mock: ^2.0.0
   # 吐司
   bot_toast: ^4.0.1
   # 本地存储
-  shared_preferences: ^2.0.5
+  shared_preferences: ^2.0.13
   # svg
-  flutter_svg: ^0.21.0+1
+  flutter_svg: ^1.0.3
   # 日志
-  logger: ^1.0.0
+  logger: ^1.1.0
   # 网络请求
-  dio: ^4.0.0
+  dio: ^4.0.4
   # 刷新
   flutter_easyrefresh: ^2.2.1
   # 序列化注解
-  json_annotation: ^4.0.1
+  json_annotation: ^4.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   # 构建工具
-  build_runner: ^1.12.2
+  build_runner: ^2.1.7
   # 序列化
-  json_serializable: ^4.1.0
+  json_serializable: ^6.1.4
+  # 代码规范
+  flutter_lints: ^1.0.4
 
 flutter:
   uses-material-design: true

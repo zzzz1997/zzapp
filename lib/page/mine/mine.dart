@@ -15,6 +15,8 @@ import 'package:zzapp/widget/appbar.dart';
 /// @created_time 20200911
 ///
 class MineFragment extends StatelessWidget {
+  const MineFragment({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final themeController = Get.find<ThemeController>();
@@ -23,12 +25,12 @@ class MineFragment extends StatelessWidget {
       appBar: MyAppBar('mine'.tr),
       body: SingleChildScrollView(
         child: ListTileTheme(
-          contentPadding: EdgeInsets.symmetric(
+          contentPadding: const EdgeInsets.symmetric(
             horizontal: 30,
           ),
           child: Column(
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               GestureDetector(
@@ -38,10 +40,10 @@ class MineFragment extends StatelessWidget {
                 child: Icon(
                   IconFonts.flutter,
                   size: 200,
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Material(
@@ -57,11 +59,11 @@ class MineFragment extends StatelessWidget {
                       Theme.of(context).brightness == Brightness.light
                           ? Icons.brightness_5
                           : Icons.brightness_2,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   trailing: Switch(
-                    activeColor: Theme.of(context).accentColor,
+                    activeColor: Theme.of(context).colorScheme.secondary,
                     value: Theme.of(context).brightness == Brightness.dark,
                     onChanged: (_) {
                       themeController.switchTheme(mode: !Get.isDarkMode);
@@ -69,7 +71,7 @@ class MineFragment extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Material(
@@ -78,7 +80,7 @@ class MineFragment extends StatelessWidget {
                   title: Text('colorTheme'.tr),
                   leading: Icon(
                     Icons.color_lens,
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   children: <Widget>[
                     Padding(
@@ -92,18 +94,18 @@ class MineFragment extends StatelessWidget {
                         children: <Widget>[
                           ...Colors.primaries
                               .map((color) => Material(
-                            color: color,
-                            child: InkWell(
-                              onTap: () {
-                                themeController.switchTheme(
-                                    color: color);
-                              },
-                              child: SizedBox(
-                                width: 40,
-                                height: 40,
-                              ),
-                            ),
-                          ))
+                                    color: color,
+                                    child: InkWell(
+                                      onTap: () {
+                                        themeController.switchTheme(
+                                            color: color);
+                                      },
+                                      child: const SizedBox(
+                                        width: 40,
+                                        height: 40,
+                                      ),
+                                    ),
+                                  ))
                               .toList(),
                           Material(
                             child: InkWell(
@@ -114,7 +116,8 @@ class MineFragment extends StatelessWidget {
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   border: Border.all(
-                                    color: Theme.of(context).accentColor,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                   ),
                                 ),
                                 width: 40,
@@ -123,7 +126,8 @@ class MineFragment extends StatelessWidget {
                                   '?',
                                   style: TextStyle(
                                     fontSize: 20,
-                                    color: Theme.of(context).accentColor,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                   ),
                                 ),
                               ),
@@ -135,7 +139,7 @@ class MineFragment extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Material(
@@ -154,13 +158,13 @@ class MineFragment extends StatelessWidget {
                   ),
                   leading: Icon(
                     Icons.font_download,
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   children: [
                     ListView.builder(
                       shrinkWrap: true,
                       itemBuilder: (_, i) => Obx(
-                            () => RadioListTile<int>(
+                        () => RadioListTile<int>(
                           value: i,
                           groupValue: themeController.fontIndex.value,
                           onChanged: (i) {
@@ -174,7 +178,7 @@ class MineFragment extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Material(
@@ -194,13 +198,13 @@ class MineFragment extends StatelessWidget {
                   ),
                   leading: Icon(
                     Icons.public,
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   children: [
                     ListView.builder(
                       shrinkWrap: true,
                       itemBuilder: (_, i) => Obx(
-                            () => RadioListTile<int>(
+                        () => RadioListTile<int>(
                           value: i,
                           groupValue: localeController.localeIndex.value,
                           onChanged: (i) {

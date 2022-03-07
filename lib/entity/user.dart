@@ -49,7 +49,7 @@ class Article {
   /// json转时间
   ///
   static DateTime timeFromJson(int? time) =>
-      DateTime.fromMillisecondsSinceEpoch(time == null ? 0 : time);
+      DateTime.fromMillisecondsSinceEpoch(time ?? 0);
 
   ///
   /// 时间转json

@@ -17,9 +17,9 @@ void main() async {
   await Global.init();
   if (GetPlatform.isAndroid) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   }
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 ///
@@ -31,6 +31,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   // 标题
   static const title = 'zzapp';
+
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -88,13 +88,10 @@ class ThemeController extends GetxController {
   ThemeData themeData({bool platformDarkMode = false}) {
     bool isDark = platformDarkMode || isDarkMode.value;
     Brightness brightness = isDark ? Brightness.dark : Brightness.light;
-    Color accentColor = (isDark ? themeColor.value[700] : themeColor.value)!;
+    Color secondary = (isDark ? themeColor.value[700] : themeColor.value)!;
     ThemeData themeData = ThemeData(
       brightness: brightness,
-      primaryColorBrightness: Brightness.dark,
-      accentColorBrightness: Brightness.dark,
       primarySwatch: themeColor.value,
-      accentColor: accentColor,
       fontFamily: fontValueList[fontIndex.value],
     );
 
@@ -107,11 +104,17 @@ class ThemeController extends GetxController {
 
     themeData = themeData.copyWith(
       brightness: brightness,
-      accentColor: accentColor,
       cupertinoOverrideTheme: CupertinoThemeData(
         primaryColor: themeColor.value,
         brightness: brightness,
       ),
+      colorScheme: isDark
+          ? ColorScheme.dark(
+              secondary: secondary,
+            )
+          : ColorScheme.light(
+              secondary: secondary,
+            ),
       appBarTheme: themeData.appBarTheme.copyWith(elevation: 0),
       splashColor: themeColor.value.withAlpha(50),
       hintColor: themeData.hintColor.withAlpha(90),
@@ -122,19 +125,19 @@ class ThemeController extends GetxController {
         ),
       ),
       textSelectionTheme: TextSelectionThemeData(
-        cursorColor: accentColor,
-        selectionColor: accentColor.withAlpha(60),
-        selectionHandleColor: accentColor.withAlpha(60),
+        cursorColor: secondary,
+        selectionColor: secondary.withAlpha(60),
+        selectionHandleColor: secondary.withAlpha(60),
       ),
-      toggleableActiveColor: accentColor,
+      toggleableActiveColor: secondary,
       chipTheme: themeData.chipTheme.copyWith(
         pressElevation: 0,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         labelStyle: themeData.textTheme.caption,
-        backgroundColor: themeData.chipTheme.backgroundColor.withOpacity(0.1),
+        backgroundColor: themeData.chipTheme.backgroundColor?.withOpacity(0.1),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        hintStyle: TextStyle(fontSize: 14),
+        hintStyle: const TextStyle(fontSize: 14),
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             width: width,
